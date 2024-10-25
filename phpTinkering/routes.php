@@ -14,4 +14,13 @@ return [
     '/update' => 'App/Controllers/FilmController@update',
     '/delete' => 'App/Controllers/FilmController@delete',
     '/destroy' => 'App/Controllers/FilmController@destroy',
+
+    // Rutas para VehicleController
+    '/models' => 'App/Controllers/VehicleController@index',
+    '/models/create' => 'App/Controllers/VehicleController@create',
+    '/models/store' => 'App/Controllers/VehicleController@store',
+    '/models/edit' => 'App/Controllers/VehicleController@edit',
+    '/models/update' => 'App/Controllers/VehicleController@update',
+    '/models/delete' => 'App/Controllers/VehicleController@delete',
+    '/models/destroy' => 'App/Controllers/VehicleController@destroy',
 ];

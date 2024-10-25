@@ -33,11 +33,37 @@ class Route
         //partim la url
         $parts = explode('/', trim($uri,'/'));
         //indiquem ruta del controlador
-        $controller = 'App\Controllers\FilmController';
+        $controllerFilm= 'App\Controllers\FilmController';
+        $controllerModel = 'App\Models\VehicleController';
 
         //Inici
+
         if ($uri === '/') {
+            require '../App/Controllers/HomeController.php';
+            //creem nova instancia
+            $controllerInstance = new \App\Controllers\HomeController();
+            return $controllerInstance->index();
+        }
+
+        //films
+        if ($uri === '/films') {
             require '../App/Controllers/FilmController.php';
+            //creem nova instancia
+            $controllerInstance = new $controllerFilm();
+            return $controllerInstance->index();
+        }
+
+        if ($uri === '/models') {
+            require '../App/Controllers/VehicleController.php';
+            //creem nova instancia
+            $controllerInstance = new $controllerModel();
+            return $controllerInstance->index();
+        }
+
+
+
+        if ($uri === '/') {
+            require '../App/Controllers/VehicleController.php';
             //creem nova instancia
             $controllerInstance = new $controller();
             return $controllerInstance->index();

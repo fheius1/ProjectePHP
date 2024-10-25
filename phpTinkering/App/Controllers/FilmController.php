@@ -27,8 +27,8 @@ class FilmController
     {
         //cridem funcio create del model
         Film::create($data);
-        //retornar a la vista principal
-        header('location: /');
+        //permaneixo en la pagina amb la base de dades actualitzada , location: / per a tornar a la vista principal
+        header('location: /films');
         exit;
     }
 
