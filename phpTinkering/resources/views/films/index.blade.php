@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <header>
+
     <nav class="bg-white shadow-md rounded-lg p-4 mb-6">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <div>
