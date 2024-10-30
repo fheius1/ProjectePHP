@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Core\App;
 
-class Model
+class Models
 {
     protected static $table = 'models';
 
@@ -12,7 +12,7 @@ class Model
     public static function getAll()
     {
         $db = App::get('database');
-        $statement = $db->getConnection()->prepare('SELECT * FROM ' . self::$table);
+        $statement = $db->getConnection()->prepare('SELECT * FROM ' . static::$table);
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -21,19 +21,20 @@ class Model
     public static function find($id)
     {
         $db = App::get('database')->getConnection();
-        $statement = $db->prepare('SELECT * FROM ' . self::$table . ' WHERE id = :id');
-        $statement->execute(['id' => $id]);
-        return $statement->fetch(\PDO::FETCH_OBJ);
+        $statement = $db->prepare('SELECT * FROM ' . static::$table . ' WHERE id = :id');
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+        return $statement->fetch();
     }
 
     // Función para crear un nuevo modelo
     public static function create($data)
     {
         $db = App::get('database')->getConnection();
-        $statement = $db->prepare('INSERT INTO ' . static::$table . " (marca, model, anyFabricacio, preu) VALUES (:marca, :model, :anyFabricacio, :preu)");
+        $statement = $db->prepare('INSERT INTO ' . static::$table . " (marca, model, any, preu) VALUES (:marca, :model, :any, :preu)");
         $statement->bindValue(':marca', $data['marca']);
         $statement->bindValue(':model', $data['model']);
-        $statement->bindValue(':anyFabricacio', $data['anyFabricacio']);
+        $statement->bindValue(':any', $data['any']);
         $statement->bindValue(':preu', $data['preu']);
         $statement->execute();
     }
@@ -42,11 +43,11 @@ class Model
     public static function update($id, $data)
     {
         $db = App::get('database')->getConnection();
-        $statement = $db->prepare("UPDATE " . static::$table . " SET marca = :marca, model = :model, anyFabricacio = :anyFabricacio, preu = :preu WHERE id = :id");
+        $statement = $db->prepare("UPDATE " . static::$table . " SET marca = :marca, model = :model, any = :any, preu = :preu WHERE id = :id");
         $statement->bindValue(':id', $id);
         $statement->bindValue(':marca', $data['marca']);
         $statement->bindValue(':model', $data['model']);
-        $statement->bindValue(':anyFabricacio', $data['anyFabricacio']);
+        $statement->bindValue(':any', $data['any']);
         $statement->bindValue(':preu', $data['preu']);
         $statement->execute();
     }

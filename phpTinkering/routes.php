@@ -15,12 +15,12 @@ return [
     '/delete' => 'App/Controllers/FilmController@delete',
     '/destroy' => 'App/Controllers/FilmController@destroy',
 
-    // Rutas para VehicleController
-    '/models' => 'App/Controllers/VehicleController@index',
-    '/models/create' => 'App/Controllers/VehicleController@create',
-    '/models/store' => 'App/Controllers/VehicleController@store',
-    '/models/edit' => 'App/Controllers/VehicleController@edit',
-    '/models/update' => 'App/Controllers/VehicleController@update',
-    '/models/delete' => 'App/Controllers/VehicleController@delete',
-    '/models/destroy' => 'App/Controllers/VehicleController@destroy',
+    // Rutas para ModelController
+//    '/models' => 'App/Controllers/ModelController@index',
+//    '/models/create' => 'App/Controllers/ModelController@create',
+//    '/models/store' => 'App/Controllers/ModelController@store',
+//    '/models/edit' => 'App/Controllers/ModelController@edit',
+//    '/models/update' => 'App/Controllers/ModelController@update',
+//    '/models/delete' => 'App/Controllers/ModelController@delete',
+//    '/models/destroy' => 'App/Controllers/ModelController@destroy',
 ];

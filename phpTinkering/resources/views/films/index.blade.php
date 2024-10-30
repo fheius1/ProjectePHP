@@ -6,7 +6,19 @@
     <title>Films</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<?php include 'phpTinkering/resources/views/navbar.php'; ?>
+<header>
+    <nav class="bg-white shadow-md rounded-lg p-4 mb-6">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div>
+                <li><a href="/">Inici</a></li>
+                <li><a href="/films">Películes</a></li>
+                <li><a href="/models">Vehicles</a></li>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
 <body class="bg-gray-100 p-8">
 <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
     <h1 class="text-3xl font-bold mb-4">Films</h1>
@@ -46,3 +58,36 @@
 </div>
 </body>
 </html>
+
+<style>
+    header {
+        background-color: #333;
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 8px 12px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav ul li a:hover {
+        background-color: #4CAF50;
+        color: #fff;
+        border-radius: 5px;
+    }
+</style>

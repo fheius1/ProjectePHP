@@ -1,32 +1,32 @@
 <?php
 
-namespace App\Controllers\VehicleController;
+namespace App\Controllers;
 
-use App\Models\Model;
+use App\Models\Models;
 
-class VehicleController
+class ModelController
 {
     // Función index
     public function index()
     {
         // Obtenemos todos los modelos
-        $models = Model::getAll();
+        $models = Models::getAll();
 
         // Pasamos los modelos a la vista
-        return view('models/index', ['models' => $models]);
+        return view('/models/index', ['models' => $models]);
     }
 
     // Función para ir a la vista create
     public function create()
     {
-        return view('models/create');
+        return view('/models/create');
     }
 
     // Función para guardar los datos y volver a la vista principal
     public function store($data)
     {
         // Llamamos a la función create del modelo
-        Model::create($data);
+        Models::create($data);
 
         // Redirigimos a la página con la base de datos actualizada
         header('location: /models');
@@ -36,22 +36,22 @@ class VehicleController
     // Función para la vista edit
     public function edit($id)
     {
-        // Si no nos pasan la id, hacemos redirect
+        // If no ID is provided, redirect to the models list
         if ($id === null) {
             header('location: /models');
             exit;
         }
 
-        // Buscamos el modelo
-        $model = Model::find($id);
+        // Find the model by ID
+        $model = Models::find($id);
 
-        // Si no encontramos el modelo, mostrar 404
+        // If the model is not found, show 404 error
         if (!$model) {
             require '../../resources/views/errors/404.blade.php';
             return;
         }
 
-        // Retornamos la vista y le pasamos el modelo indicado
+        // Return the edit view with the model data
         return view('models/edit', ['model' => $model]);
     }
 
@@ -59,7 +59,7 @@ class VehicleController
     public function update($id, $data)
     {
         // Modificamos
-        Model::update($id, $data);
+        Models::update($id, $data);
 
         // Retornamos a la página principal
         header('location: /models');
@@ -76,7 +76,7 @@ class VehicleController
         }
 
         // Buscamos el modelo
-        $model = Model::find($id);
+        $model = Models::find($id);
 
         // Retornamos la vista para confirmar la eliminación
         return view('models/delete', ['model' => $model]);
@@ -86,7 +86,7 @@ class VehicleController
     public function destroy($id)
     {
         // Utilizamos la función delete del modelo
-        Model::delete($id);
+        Models::delete($id);
 
         // Redirigimos a la vista
         header('location: /models');

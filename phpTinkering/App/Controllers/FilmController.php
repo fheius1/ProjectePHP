@@ -37,7 +37,7 @@ class FilmController
     {
         //si no ens passen la id fem redirect
         if ($id === null) {
-            header('location: /');
+            header('location: /films');
             exit;
         }
 
@@ -46,8 +46,8 @@ class FilmController
 
         //si no ens passen cap peli mostrar 404
         if (!$film) {
-            require '../../resources/views/errors/404.blade.php';
-            return;
+
+            return view('errors/404');
         }
 
         //retornem la vista i li passem la peli indicada
@@ -61,7 +61,7 @@ class FilmController
         Film::update($id, $data);
 
         //retonem a la pàgina principal
-        header('location: /');
+        header('location: /films');
         exit;
     }
 
@@ -70,7 +70,7 @@ class FilmController
     {
         //si no ens passen la id fem redirect
         if ($id === null) {
-            header('location: /');
+            header('location: /films');
             exit;
         }
 
@@ -88,7 +88,7 @@ class FilmController
         Film::delete($id);
 
         //retornar a la vista
-        header('location: /');
+        header('location: /films');
     }
 
 
