@@ -1,0 +1,7 @@
+CREATE TABLE models (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    marca VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    any INT NOT NULL,
+    preu DOUBLE NOT NULL
+);
